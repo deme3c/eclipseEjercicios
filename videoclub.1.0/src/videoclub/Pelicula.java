@@ -7,6 +7,7 @@ public class Pelicula {
 	private String titulo;
 	private boolean disponible;
 	private int categoria;  //1:Novedad, 2:Semi-novedad, 3:Antigua
+	private int diasAlquilada;
 	
 	public Pelicula(String titulo, int categoria) {
 		super();
@@ -15,7 +16,19 @@ public class Pelicula {
 		this.codigo = idCodigo;
 		idCodigo++;
 		this.disponible = true;
+		this.diasAlquilada = 0;
 	}
+
+	
+	public int getDiasAlquilada() {
+		return diasAlquilada;
+	}
+
+
+	public void setDiasAlquilada(int diasAlquilada) {
+		this.diasAlquilada = diasAlquilada;
+	}
+
 
 	public int getCodigo() {
 		return codigo;
