@@ -79,7 +79,7 @@ public class principalVideoclub {
 
 		} // fin while
 
-	}
+	} // fin main
 
 	private static void pasarDeDia() {
 		
@@ -191,22 +191,40 @@ public class principalVideoclub {
 	}
 
 	private static void eliminarProducto() {
-		listadoPeliculas();
-		listadoCDs();
-		System.out.println("¿Que desea eliminar? Pulse 1:Peliculas, 2:CD");
-		int pelicula = 1;
-		int cd = 2;
-		int eleccion = seleccionarNumero(pelicula, cd);
 		
-		System.out.println("¿Que numero desea eliminar?");
-		if(eleccion==1) {
-			int eliminar = sc.nextInt();
-			peliculas.remove(eliminar);
+		int posicion = 0;
+		
+		for(Pelicula p : peliculas) {
+			System.out.println(posicion + " " + p);
+			posicion++;
 		}
-		if(eleccion==2) {
-			int eliminar = sc.nextInt();
-			CDs.remove(eliminar);
+		for(CD c : CDs) {
+			System.out.println(posicion + " " + c);
+			posicion++;
 		}
+		
+		System.out.println("¿Qué producto desea eliminar?");
+		int eleccion = sc.nextInt();
+		
+		posicion = 0;
+		
+		
+		for(Pelicula p : peliculas) {
+			if(eleccion == posicion) {
+				peliculas.remove(p);
+				break;
+			}
+			posicion++;
+		}
+		for(CD c : CDs) {
+			if(eleccion == posicion) {
+				CDs.remove(c);
+				break;
+			}
+			posicion++;
+		}
+		
+		
 		System.out.println("Producto eliminado");
 		System.out.println("\nPulse enter para continuar");
 		scLine.nextLine();
@@ -279,7 +297,7 @@ public class principalVideoclub {
 			String autor = scLine.nextLine();
 			
 			System.out.println("Precio?");
-			double precio = sc.nextInt();
+			double precio = sc.nextDouble();
 			
 			System.out.println("Unidades?");
 			int unidades = sc.nextInt();
